@@ -1,0 +1,5 @@
+language: ruby
+rvm:
+ - 2.2
+
+script: bundle exec cucumber tests/browser/features/ --tags ~@login --tags ~@feature-anon-editing-support --tags ~@adminuser --tags @chrome --tags ~@feature-mobile-site --tags ~@skip
