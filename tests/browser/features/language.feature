@@ -50,7 +50,7 @@ Feature: Language selection
     Then I should not see a suggested language link
     Then I should see a non-suggested language link
 
-  @smoke
+  @smoke @skip
   Scenario: Checking that the suggested language link has been created
     Given I go to a page that has languages
     And I click the switch-language page action

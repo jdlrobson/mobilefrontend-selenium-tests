@@ -3,14 +3,14 @@ class SpecialHistoryPage < ArticlePage
 
   page_url 'Special:History'
 
-  div(:content_header_bar, css: '.content-header')
+  div(:content_header_bar, css: '.tagline')
   a(:content_header_bar_link) do |page|
     page.content_header_bar_element.link_element(index: 0)
   end
 
-  ul(:side_list, css: '.side-list', index: 0)
+  div(:side_list, css: '.side-list', index: 0)
   li(:last_contribution) do |page|
-    page.side_list_element.list_item_element(index: 0)
+    page.side_list_element.div_element(css: '.card-diff', index: 0)
   end
   a(:last_contribution_link) do |page|
     page.last_contribution_element.link_element(index: 0)
@@ -21,11 +21,11 @@ class SpecialHistoryPage < ArticlePage
   p(:last_contribution_timestamp) do |page|
     page.last_contribution_element.paragraph_element(index: 0, css: '.timestamp')
   end
-  p(:last_contribution_edit_summary) do |page|
-    page.last_contribution_element.paragraph_element(index: 0, css: '.edit-summary')
+  span(:last_contribution_edit_summary) do |page|
+    page.last_contribution_element.span_element(index: 0, css: '.edit-summary')
   end
-  p(:last_contribution_username) do |page|
-    page.last_contribution_element.paragraph_element(index: 0, css: '.mw-mf-user')
+  a(:last_contribution_username) do |page|
+    page.last_contribution_element.link_element(index: 0, css: '.mw-mf-user')
   end
   a(:more_link, css: '.more')
 end

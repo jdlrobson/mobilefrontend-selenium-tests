@@ -3,7 +3,7 @@ When(/^I click the overlay issue close button$/) do
 end
 
 When(/^I click the page issues stamp$/) do
-  on(ArticlePage).issues_stamp_element.when_present.click
+  on(ArticlePage).issues_stamp_element.when_visible(10).click
 end
 
 When(/^I see the issues overlay$/) do

@@ -14,8 +14,8 @@ class ArticlePage
 
   # left nav
   nav(:navigation, css: 'nav')
-  a(:about_link) { |page| page.navigation_element.link_element(text: /^About/) }
-  a(:disclaimer_link) { |page| page.navigation_element.link_element(text: 'Disclaimers') }
+  a(:about_link, css: '.hlist a', index: 0)
+  a(:disclaimer_link, css: '.hlist a', index: 1)
 
   # last modified bar
   a(:last_modified_bar_history_link, href: /Special:History/)
@@ -40,8 +40,8 @@ class ArticlePage
   li(:upload_button, id: 'ca-upload')
   file_field(:select_file, name: 'file', type: 'file')
   div(:photo_overlay, class: 'photo-overlay')
-  button(:photo_overlay_close_button) do |page|
-    page.photo_overlay_element.button_element(class: 'cancel')
+  div(:photo_overlay_close_button) do |page|
+    page.photo_overlay_element.div_element(class: 'cancel')
   end
   text_area(:photo_description) do |page|
     page.photo_overlay_element.text_area_element(name: 'description')
@@ -51,23 +51,23 @@ class ArticlePage
   end
 
   ## watch star
-  button(:watch_star, text: 'Watch this page')
+  div(:watch_star, text: 'Watch this page')
   button(:unwatch_star, text: 'Stop watching')
   button(:watch_confirm, class: 'mw-htmlform-submit')
 
   # search
   button(:search_button, css: '.search-box .button-wrapper')
-  p(:search_within_pages, css: '.without-results')
+  div(:search_within_pages, css: '.without-results')
   text_field(:search_box_placeholder, name: 'search', index: 0)
   text_field(:search_box2, name: 'search', index: 1)
-  li(:search_results, css: '.search-overlay .page-list li')
-  div(:search_watchstars, css: '.search-overlay .page-list li .watch-this-article')
+  li(:search_results, css: '.search-overlay .card-list .card')
+  div(:search_watchstars, css: '.search-overlay .page-list .card .watch-this-article')
   div(:search_overlay, class: 'search-overlay')
-  button(:search_overlay_close_button) do |page|
-    page.search_overlay_element.button_element(class: 'cancel')
+  div(:search_overlay_close_button) do |page|
+    page.search_overlay_element.div_element(class: 'cancel')
   end
-  ul(:search_overlay_page_list) do |page|
-    page.search_overlay_element.element.ul(class: 'page-list thumbs actionable')
+  div(:search_overlay_page_list) do |page|
+    page.search_overlay_element.element.div(css: '.card-list')
   end
   a(:search_result) do |page|
     page.search_overlay_page_list_element.element.a
@@ -78,8 +78,8 @@ class ArticlePage
 
   a(:notifications_button, id: 'secondary-button', class: 'user-button')
   div(:notifications_overlay, class: 'notifications-overlay')
-  button(:notifications_overlay_close_button) do |page|
-    page.notifications_overlay_element.button_element(class: 'cancel')
+  div(:notifications_overlay_close_button) do |page|
+    page.notifications_overlay_element.div_element(class: 'cancel')
   end
   h2(:progress_header, class: 'uploading')
 
@@ -112,8 +112,8 @@ class ArticlePage
 
   # overlay
   div(:overlay, css: '.overlay')
-  button(:overlay_close_button) do |page|
-    page.overlay_element.button_element(class: 'cancel')
+  div(:overlay_close_button) do |page|
+    page.overlay_element.div_element(class: 'cancel')
   end
   h2(:overlay_heading, css: '.overlay-title h2')
 
@@ -159,9 +159,9 @@ class ArticlePage
   # pagelist
   ul(:page_list, css: '.page-list')
 
-  # references
-  a(:reference, css: 'sup.reference a')
-  a(:nested_reference, css: '.drawer.references sup.reference a')
+  # references (supports both Parsoid outputted content and MediaWiki parser)
+  a(:reference, css: 'sup.reference a,.mw-ref a')
+  a(:nested_reference, css: '.drawer.references sup.reference a, .drawer.references .mw-ref a')
   a(:reference_drawer, css: '.drawer.references')
 
   # sections

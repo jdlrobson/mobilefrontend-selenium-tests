@@ -1,5 +1,5 @@
 When(/^I click the language overlay close button$/) do
-  on(ArticlePage).overlay_languages_element.when_present.button_element(class: 'cancel').click
+  on(ArticlePage).overlay_languages_element.when_present.div_element(class: 'cancel').click
 end
 
 When(/^I see the language overlay$/) do

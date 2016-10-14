@@ -1,4 +1,4 @@
-@chrome @firefox @vagrant
+@chrome @firefox @vagrant @feature-mobile-site
 Feature: Switch between mobile and desktop views
 
   @integration

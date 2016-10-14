@@ -47,6 +47,7 @@ Given(/^I am on the "(.+)" page$/) do |article|
   # Ensure we do not cause a redirect
   article = article.gsub(/ /, '_')
   visit(ArticlePage, using_params: { article_name: article })
+  sleep(5)
 end
 
 Given(/^I am using the mobile site$/) do
