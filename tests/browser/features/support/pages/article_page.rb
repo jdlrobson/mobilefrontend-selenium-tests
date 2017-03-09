@@ -58,7 +58,7 @@ class ArticlePage
   button(:watch_confirm, class: 'mw-htmlform-submit')
 
   # search
-  button(:search_icon, css: '#searchIcon input')
+  div(:search_icon, css: '.mw-ui-icon-search')
   p(:search_within_pages, css: '.without-results')
   text_field(:search_box_placeholder, name: 'search', index: 0)
   text_field(:search_box2, name: 'search', index: 1)
