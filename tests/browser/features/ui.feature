@@ -31,7 +31,7 @@ Feature: Check UI components
     Given I am on the "Main Page" page
     Then I should not see the beta mode indicator
 
-  @smoke @integration
+  @smoke @integration @skip
   Scenario: Check that the beta mode indicator is visible in beta.
     Given I am on the "Main Page" page
       And I am in beta mode
