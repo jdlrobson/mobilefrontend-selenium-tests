@@ -59,7 +59,7 @@ class ArticlePage
 
   # search
   div(:search_icon, css: '.mw-ui-icon-search')
-  p(:search_within_pages, css: '.without-results')
+  div(:search_within_pages, css: '.without-results')
   text_field(:search_box_placeholder, name: 'search', index: 0)
   text_field(:search_box2, name: 'search', index: 1)
   li(:search_results, css: '.search-overlay .card-list .card')
