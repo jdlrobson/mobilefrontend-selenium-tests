@@ -64,18 +64,10 @@ This page is used by Selenium to test geo related features.
 end
 
 Given(/^I go to a page that has languages$/) do
-  wikitext = 'This page is used by Selenium to test language related features.
-
-[[es:Selenium language test page]]'
-
-  api.create_page 'Selenium language test page', wikitext
   step 'I am on the "Selenium language test page" page'
 end
 
 Given(/^I go to a page that does not have languages$/) do
-  wikitext = 'This page is used by Selenium to test language related features.'
-
-  api.create_page 'Selenium language test page without languages', wikitext
   step 'I am on the "Selenium language test page without languages" page'
 end
 
